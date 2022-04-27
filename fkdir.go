@@ -72,6 +72,21 @@ var words = []string{
 	"voluptate",
 }
 
+func RandomAlfaNumberString(len int) string {
+	b := make([]byte, len)
+	rand.Read(b)
+	return fmt.Sprintf("%x", b)
+}
+
+func RandomNumberString(len int) string {
+	s := ""
+	for i := 0; i < len; i++ {
+		digit := rand.Intn(9)
+		s = fmt.Sprintf("%s%d", s, digit)
+	}
+	return s
+}
+
 func RandomParagraph(min, max int) string {
 	text := ""
 	if min >= max {
@@ -100,6 +115,8 @@ func RandomDate() time.Time {
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
-	text := RandomParagraph(50, 100)
+
+	//text := RandomParagraph(50, 100)
+	text := RandomNumberString(8)
 	fmt.Println(text)
 }
