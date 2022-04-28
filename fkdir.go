@@ -8,71 +8,27 @@ import (
 	"os"
 	"flag"
 	"unicode"
+	"bufio"
 )
 
-var words = []string{
-	"ad",
-	"adipisicing",
-	"aliqua",
-	"aliquip",
-	"amet",
-	"anim",
-	"aute",
-	"cillum",
-	"commodo",
-	"consectetur",
-	"consequat",
-	"culpa",
-	"cupidatat",
-	"deserunt",
-	"do",
-	"dolor",
-	"dolore",
-	"duis",
-	"ea",
-	"eiusmod",
-	"elit",
-	"enim",
-	"esse",
-	"est",
-	"et",
-	"eu",
-	"ex",
-	"excepteur",
-	"exercitation",
-	"fugiat",
-	"id",
-	"in",
-	"incididunt",
-	"ipsum",
-	"irure",
-	"labore",
-	"laboris",
-	"laborum",
-	"Lorem",
-	"magna",
-	"minim",
-	"mollit",
-	"nisi",
-	"non",
-	"nostrud",
-	"nulla",
-	"occaecat",
-	"officia",
-	"pariatur",
-	"proident",
-	"qui",
-	"quis",
-	"reprehenderit",
-	"sint",
-	"sit",
-	"sunt",
-	"tempor",
-	"ullamco",
-	"ut",
-	"velit",
-	"veniam",
-	"voluptate",
+
+
+var words []string
+
+func LoadWords() []string{
+	file, err := os.Open("dict.txt")
+	if err!=nil{
+		fmt.Println(err)
+	}
+	scanner := bufio.NewScanner(file)
+	scanner.Split(bufio.ScanLines)
+	var text []string
+	for scanner.Scan() {
+		text = append(text, scanner.Text())
+	}
+	file.Close()
+
+	return text
 }
 
 func RandomAlfaNumberString(len int) string {
@@ -176,6 +132,8 @@ var flagPrefix = flag.String("p","","Prefijo para los ficheros creados")
 func main() {
 	rand.Seed(time.Now().UnixNano())
 	flag.Parse()
+	words=LoadWords()
+	
 	args:=flag.Args()
 	if len(args)<1{
 		fmt.Println("\n   Uso:   fkdir [flags] <newdir>\n\n Lista de flags:\n")
