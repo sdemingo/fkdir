@@ -1,2 +1,3 @@
-# fkdir
+# fk
+
 Simple tool to create fake directories with random contents

@@ -34,6 +34,10 @@ anim
 anuncialo
 anunciaste
 aparece
+archivo
+el archivo
+archivos
+los archivos
 artículos
 asunto
 aute
@@ -64,6 +68,8 @@ consectetur
 consequat
 construcción
 correo
+un correo
+el correo
 creando
 crear
 cualquier
@@ -83,11 +89,15 @@ desde
 deserunt
 diez
 dirección
+la dirección
 directorio
+el directorio
 directorios
+los direcotorios
 dirá
 do
 documento
+el documento
 dolor
 dolore
 donde
@@ -130,7 +140,9 @@ exercitation
 explica
 fase
 fichero
+el fichero
 ficheros
+los ficheros
 final
 fugiat
 gbb
@@ -145,9 +157,12 @@ inactiva
 incidencias
 incididunt
 información
+la información
 integrarlo
 intención
-internet]
+tu intención
+la intención
+internet
 ipsum
 irure
 juega
@@ -164,7 +179,9 @@ lograste
 los
 ls
 línea
+la línea
 líneas
+las líneas
 magna
 manera
 manual
@@ -176,7 +193,9 @@ minim
 mismo
 mollit
 momento
+el momento
 motivo
+el motivo
 muy
 más
 mínimo
@@ -189,6 +208,7 @@ nostrud
 nueve
 nulla
 número
+el número
 obra
 occaecat
 ocho
@@ -202,11 +222,13 @@ participar
 pasos
 perdido
 permisos
+los permisos
 pista
 primero
 principal
 privada
 proceso
+el proceso
 proident
 publicados
 puede
@@ -229,6 +251,7 @@ sabrán
 seis
 sencillo
 servidor
+el servidor
 sería
 si
 siete
@@ -237,17 +260,22 @@ simple
 sint
 sintaxis
 sistema
+el sistema
 sit
 solicitar
 solución
+la solución
 sunt
 te
 tema
+el tema
 tempor
 tengas
 terminada
 terminal
+la terminal
 texto
+el texto
 tienes
 todos
 toma
