@@ -132,9 +132,6 @@ func buildRandomFile(filename string, npar int){
 	text := RandomText(npar)
 	lines:=SplitStringInLines(text,80)
 	text=strings.Join(lines,"\n")
-	if filename==""{
-		filename=*flagPrefix+RandomNumberString(*flagSizeFileNames)
-	}
 	err := os.WriteFile(filename, []byte(text), 0660)
 	if err != nil {
 		fmt.Println(err)
@@ -175,23 +172,9 @@ func main() {
 
 		nfiles:=*flagNumFiles
 		for i:=0;i<nfiles;i++{
-			/*
-		        text := RandomText(5)
-			lines:=SplitStringInLines(text,80)
-			text=strings.Join(lines,"\n")
 			filename:=*flagPrefix+RandomNumberString(*flagSizeFileNames)
-			file:=dirname+"/"+filename
-			err := os.WriteFile(file, []byte(text), 0660)
-			if err != nil {
-				fmt.Println(err)
-			}
-			if *flagRandomDate{
-				rdate:=RandomDate()
-				err=os.Chtimes(file,rdate,rdate)
-				if err!=nil{
-					fmt.Println(err)
-				}
-			}*/
+			filename=dirname+"/"+filename
+			buildRandomFile(filename, *flagNumPar)
 		}
 
 	}else if *flagMode == "file" {

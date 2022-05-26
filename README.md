@@ -1,3 +1,5 @@
 # fk
 
-Simple tool to create fake directories with random contents
+A terminal tool to create fake files, directories and tables with random content
+
+
