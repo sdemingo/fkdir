@@ -56,10 +56,16 @@ func RandomParagraph(min, max int) string {
 	}
 	nwords := rand.Intn(max-min) + min
 	for i := 0; i < nwords; i++ {
+		// Palabra aleatoria sacada del diccionario
 		w := words[rand.Intn(len(words)-1)]
 		if i == 0 {
 			w = strings.Title(w)
 		}
+		// 90% probabilidad de que la palabra
+		if rand.Intn(100)>90{
+			w = RandomAlfaNumberString(5)
+		}
+		// Probabilidad de insertar signo de puntuación
 		if (i % 5 == 0) && (rand.Intn(2)==0) && (text!=""){
 			i:=rand.Intn(len(punct_symbols))
 			text = text + punct_symbols[i] + " " + w
@@ -150,6 +156,7 @@ var flagNumFiles = flag.Int("nf", 10, "Número exacto de ficheros que contendrá
 var flagNumPar = flag.Int("np",5,"Número máximo de párrafos del fichero")
 var flagDeltaFiles = flag.Int("af", 0, "Variación de ficheros sobre el número máximo")
 var flagSizeFileNames = flag.Int("sf", 10, "Longitud de los nombres de los ficheros")
+var flagCharFileNames = flag.Bool("cf",false,"Incluir caracteres alfanuméricos en los nombres de ficheros")
 var flagRandomDate = flag.Bool("rd",false,"Fecha de creación aleatoria para los ficheros")
 var flagPrefix = flag.String("p","","Prefijo para los ficheros creados")
 var flagMode = flag.String("o","dir","Producto objetivo (dir, table, file)")
@@ -172,7 +179,13 @@ func main() {
 
 		nfiles:=*flagNumFiles
 		for i:=0;i<nfiles;i++{
-			filename:=*flagPrefix+RandomNumberString(*flagSizeFileNames)
+			filename:=""
+			if *flagCharFileNames{
+				filename=*flagPrefix+RandomAlfaNumberString(*flagSizeFileNames)
+			}else{
+				filename=*flagPrefix+RandomNumberString(*flagSizeFileNames)
+			}
+				
 			filename=dirname+"/"+filename
 			buildRandomFile(filename, *flagNumPar)
 		}
