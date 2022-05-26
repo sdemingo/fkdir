@@ -1,3 +1,3 @@
-module fkdir
+module fk
 
 go 1.17
