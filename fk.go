@@ -156,12 +156,29 @@ func buildRandomFile(filename string, npar int) {
 }
 
 func buildRandomTable(filename string, ncols int, delim string) {
+	const COL_NUMBER = 0
+	const COL_WORD = 1
+
+	// build the column map (numbers or words column)
+	columnMap:=make([]byte,ncols)
+	for i:=0;i<ncols;i++{
+		columnMap[i]=byte(rand.Intn(2))
+	}
+
 	table := ""
 	maxlines := rand.Intn(500) + 1
+	
 	for nline := 0; nline < maxlines; nline++ {
 		line := ""
 		for i := 0; i < ncols; i++ {
-			w := RandomWord()
+			w:=""
+			switch columnMap[i]{
+				case COL_WORD:
+				w = RandomWord()
+				case COL_NUMBER:
+				w = RandomNumberString(5)
+			}
+
 			if len(w) > 8 {
 				w = w[:8]
 			}
