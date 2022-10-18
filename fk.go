@@ -14,7 +14,12 @@ import (
 var words []string
 
 func LoadWords() []string {
-	file, err := os.Open("dict.txt")
+	home:=os.Getenv("HOME")
+   	file, err := os.Open(home+"/.fk/dict.txt")
+	if err!=nil{
+		fmt.Println(err)
+	}
+
 	if err != nil {
 		fmt.Println(err)
 	}
